@@ -14,36 +14,63 @@
       min-height: 100vh;
       font-family: Arial, sans-serif;
 
-      /* Розовый фон (оставляем как сделали) */
-      background: linear-gradient(135deg, #ffe4f1, #ffd1e8, #ffc2df);
+      /* Фон-картинка */
+      background-image: url("https://www.genspark.ai/api/files/s/u0fYMMTt");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
 
       display: flex;
       align-items: center;
       justify-content: center;
       padding: 24px;
+
+      position: relative;
+      overflow-x: hidden;
     }
 
-    /* Карточка — белая */
+    /* Небольшая “вуаль”, чтобы текст/карточка читались на фактуре */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(1200px 800px at 20% 10%, rgba(255,255,255,0.12), transparent 55%),
+        linear-gradient(135deg, rgba(10, 6, 18, 0.35), rgba(10, 6, 18, 0.15));
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Карточка: красивый светло-лавандовый под фиолетовый фон */
     .card {
       width: 100%;
       max-width: 680px;
-      background: #ffffff;
-      border: 1px solid rgba(17, 24, 39, 0.08);
+
+      background: rgba(247, 242, 255, 0.92); /* мягкий лавандовый */
+      backdrop-filter: blur(10px);
+
+      border: 1px solid rgba(230, 221, 255, 0.9);
       border-radius: 28px;
       padding: 40px 32px;
-      box-shadow: 0 20px 60px rgba(17, 24, 39, 0.18);
+
+      box-shadow: 0 26px 70px rgba(0, 0, 0, 0.35);
       text-align: center;
 
-      /* Чёрный/тёмный шрифт внутри карточки */
-      color: #111827;
+      color: #1f1333; /* тёмный, но мягче “чисто чёрного” */
+      position: relative;
+      z-index: 1;
     }
 
     .badge {
       display: inline-block;
       padding: 8px 16px;
       border-radius: 999px;
-      background: #f3f4f6;
-      color: #111827;
+
+      background: rgba(93, 46, 160, 0.10);
+      border: 1px solid rgba(93, 46, 160, 0.18);
+      color: #4a1f86;
+
       font-size: 14px;
       letter-spacing: 0.4px;
       margin-bottom: 18px;
@@ -53,7 +80,7 @@
       margin: 0 0 14px;
       font-size: 40px;
       line-height: 48px;
-      color: #111827;
+      color: #1f1333;
     }
 
     .subtitle {
@@ -61,7 +88,7 @@
       max-width: 560px;
       font-size: 18px;
       line-height: 28px;
-      color: #374151;
+      color: rgba(31, 19, 51, 0.78);
     }
 
     .info {
@@ -73,15 +100,15 @@
     }
 
     .info-box {
-      background: #f9fafb;
-      border: 1px solid rgba(17, 24, 39, 0.06);
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid rgba(93, 46, 160, 0.10);
       border-radius: 18px;
       padding: 18px 20px;
     }
 
     .info-label {
       font-size: 13px;
-      color: #6b7280;
+      color: rgba(31, 19, 51, 0.55);
       margin-bottom: 8px;
       text-transform: uppercase;
       letter-spacing: 0.6px;
@@ -91,29 +118,29 @@
       font-size: 18px;
       font-weight: 700;
       line-height: 26px;
-      color: #111827;
+      color: #1f1333;
     }
 
     .section {
       text-align: left;
       margin-bottom: 32px;
-      background: #f9fafb;
-      border: 1px solid rgba(17, 24, 39, 0.06);
+
+      background: rgba(255, 255, 255, 0.62);
+      border: 1px solid rgba(93, 46, 160, 0.10);
       border-radius: 20px;
       padding: 24px;
-      color: #111827;
     }
 
     .section h2 {
       margin: 0 0 14px;
       font-size: 22px;
-      color: #111827;
+      color: #1f1333;
     }
 
     .section ul {
       margin: 0;
       padding-left: 20px;
-      color: #374151;
+      color: rgba(31, 19, 51, 0.85);
       line-height: 28px;
       font-size: 17px;
     }
@@ -124,30 +151,29 @@
       margin-top: 8px;
     }
 
-    /* Кнопка/выпадашка — под светлую карточку (черный текст) */
     add-to-calendar-button {
-      --atcb-button-box-shadow: 0 14px 30px rgba(17, 24, 39, 0.18);
+      --atcb-button-box-shadow: 0 14px 30px rgba(0, 0, 0, 0.22);
       --atcb-button-border-radius: 18px;
       --atcb-button-padding: 20px 34px;
       --atcb-button-font-size: 22px;
       --atcb-button-font-weight: 700;
 
-      --atcb-button-text: #111827;
+      --atcb-button-text: #1f1333;
       --atcb-button-background: #ffffff;
-      --atcb-button-hover-background: #f3f4f6;
-      --atcb-button-active-background: #e5e7eb;
+      --atcb-button-hover-background: #f2effa;
+      --atcb-button-active-background: #e8e1f7;
 
       --atcb-dropdown-background: #ffffff;
-      --atcb-dropdown-text: #111827;
+      --atcb-dropdown-text: #1f1333;
       --atcb-dropdown-border-radius: 16px;
-      --atcb-dropdown-box-shadow: 0 18px 40px rgba(17, 24, 39, 0.18);
-      --atcb-dropdown-item-hover-background: #f3f4f6;
+      --atcb-dropdown-box-shadow: 0 18px 40px rgba(0, 0, 0, 0.22);
+      --atcb-dropdown-item-hover-background: #f2effa;
     }
 
     .footer {
       margin-top: 20px;
       font-size: 14px;
-      color: #6b7280;
+      color: rgba(31, 19, 51, 0.55);
     }
 
     @media (max-width: 640px) {
